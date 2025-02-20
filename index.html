@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBL MEMBERS SELECTION</title>
+  <link rel="shortcut icon" href="assets/webIcon.jpg" type="image/x-icon">
+  <style>
+    /* Global Styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      color: rgb(252, 37, 37);
+      font-weight: bolder;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      overflow-y: hidden;
+    }
+
+    html {
+      overflow: hidden;
+    }
+
+    /* Video Background */
+    video.background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Form Container */
+    .container {
+      background-color: rgba(0, 0, 0, 0);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
+      margin: 0 20px;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    /* Large Header */
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #fcfcfc;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Input Fields and Labels */
+    label {
+      font-size: 16px;
+      margin: 8px 0 5px;
+      display: block;
+      font-weight: 600;
+    }
+
+    input[type="text"], input[type="checkbox"] {
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      width: 100%;
+      border: 1px solid #ddddddb1;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    input[type="text"]:focus, input[type="checkbox"]:focus {
+      outline: none;
+      border: 1px solid #2575fc;
+    }
+
+    .skills-checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    .skills-checkbox-group input[type="checkbox"] {
+      transform: scale(0.9);
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    .skills-checkbox-group label {
+      font-size: 14px;
+      font-weight: bolder;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      background-color: #3b39399c;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      line-height: 1.5;
+    }
+
+    .skills-checkbox-group label:hover {
+      background-color: #45c252cc;
+      color: white;
+    }
+
+    button {
+      padding: 15px;
+      width: 100%;
+      background-color: #1e5eb774;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #13fa2e89;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      input[type="text"], button {
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      .skills-checkbox-group {
+        grid-template-columns: 1fr;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="background-video" autoplay muted loop>
+    <source src="assets/background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Skills Selection Form -->
+  <div class="container">
+    <h1>PBL MEMBERS SELECTION</h1>
+    <form id="skillsForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="skills">Skills</label>
+      <div class="skills-checkbox-group">
+        <label><input type="checkbox" name="skills" value="HTML & CSS"> HTML & CSS</label>
+        <label><input type="checkbox" name="skills" value="Java"> Java</label>
+        <label><input type="checkbox" name="skills" value="Python"> Python</label>
+        <label><input type="checkbox" name="skills" value="C++"> C++</label>
+        <label><input type="checkbox" name="skills" value="Web Development"> Web Development</label>
+        <label><input type="checkbox" name="skills" value="Machine Learning"> Machine Learning</label>
+        <label><input type="checkbox" name="skills" value="Data Science"> Data Science</label>
+        <label><input type="checkbox" name="skills" value="Mobile Development"> Mobile Development</label>
+        <label><input type="checkbox" name="skills" value="Git & GitHub"> Git & GitHub</label>
+        <label><input type="checkbox" name="skills" value="AWS"> AWS</label>
+        <label><input type="checkbox" name="skills" value="SQL"> SQL</label>
+        <label><input type="checkbox" name="skills" value="Database"> Database</label>
+      </div>
+
+      <label for="contact">Contact Details (10 digit number)</label>
+      <input type="text" id="contact" name="contact" placeholder="Enter 10-digit phone number" required pattern="\d{10}" maxlength="10">
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script type="module">
+    // Import Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCHhlD6ACL5BmpCiEc45djneYCHbW4_qA0",
+      authDomain: "flexbase-f005f.firebaseapp.com",
+      databaseURL: "https://flexbase-f005f-default-rtdb.firebaseio.com",
+      projectId: "flexbase-f005f",
+      storageBucket: "flexbase-f005f.firebasestorage.app",
+      messagingSenderId: "262222257146",
+      appId: "1:262222257146:web:7f7d361bc2446ae92c6243",
+      measurementId: "G-RN7B4JY2BS"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Get form elements
+    const form = document.getElementById("skillsForm");
+    const nameInput = document.getElementById("name");
+    const contactInput = document.getElementById("contact");
+
+    // Handle form submission
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      // Get form values
+      const name = nameInput.value;
+      const selectedSkills = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(checkbox => checkbox.value);
+      const contact = contactInput.value;
+
+      // Validate phone number
+      const phonePattern = /^\d{10}$/;
+      if (!phonePattern.test(contact)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+      }
+
+      // Push data to Firebase
+      const newEntryRef = ref(database, 'batchmates/' + name);
+      set(newEntryRef, { name: name, skills: selectedSkills, contact: contact }).then(() => {
+        alert("Data submitted successfully!");
+        form.reset();
+      }).catch((error) => {
+        alert("Error submitting data: " + error.message);
+      });
+    });
+  </script>
+</body>
+</html>
